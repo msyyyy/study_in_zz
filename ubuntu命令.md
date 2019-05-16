@@ -100,7 +100,7 @@ ps axjf # 查看连同一部分进程树状态
 
 
 
-killall [-iIe] [command name]    杀死进程
+`killall [-iIe] [command name]    杀死进程,靠名字`，`kill 靠 进程id`
 
 
 
@@ -160,3 +160,81 @@ grep家族总共有三个：grep，egrep，fgrep。
 　　　　　　\B ：与\b作用相反。
 ```
 
+tar 
+
+```
+
+压缩：tar -jcv -f filename.tar.bz2 要被处理的文件或目录名称  
+查询：tar -jtv -f filename.tar.bz2  
+解压：tar -jxv -f filename.tar.bz2 -C 欲解压缩的目录  
+
+```
+
+cat命令
+
+该命令用于查看文本文件的内容，后接要查看的文件名，通常可用管道与more和less一起使用，从而可以一页页地查看数据。例如：
+
+```
+
+cat text | less # 查看text文件中的内容  
+# 注：这条命令也可以使用less text来代替  
+```
+
+gcc命令
+
+对于一个用Linux开发C程序的人来说，这个命令就非常重要了，它用于把C语言的源程序文件，编译成可执行程序，由于g++的很多参数跟它非常相似，所以这里只介绍gcc的参数，它的常用参数如下：
+
+```
+
+-o ：output之意，用于指定生成一个可执行文件的文件名  
+-c ：用于把源文件生成目标文件（.o)，并阻止编译器创建一个完整的程序  
+-I ：增加编译时搜索头文件的路径  
+-L ：增加编译时搜索静态连接库的路径  
+-S ：把源文件生成汇编代码文件  
+-lm：表示标准库的目录中名为libm.a的函数库  
+-lpthread ：连接NPTL实现的线程库  
+-std= ：用于指定把使用的C语言的版本  
+  
+# 例如：  
+# 把源文件test.c按照c99标准编译成可执行程序test  
+gcc -o test test.c -lm -std=c99  
+#把源文件test.c转换为相应的汇编程序源文件test.s  
+gcc -S test.c  
+```
+
+time命令
+
+该命令用于测算一个命令（即程序）的执行时间。它的使用非常简单，就像平时输入命令一样，不过在命令的前面加入一个time即可，例如：
+
+```
+time ./process  
+time ps aux  
+```
+
+apt
+
+```
+apt list [package]
+从本地仓库中查找指定的包名，支持通配符，比如"apt list zlib*"就能列出以zlib开头的所有包
+
+apt search [key]
+与list类似，通过给出的关键字进行搜索，列出所有的包和其描述
+
+apt show [package]
+列出指定包的详细情况，包名要填写完整。
+
+apt install [package]
+安装指定的包，并同时安装其依赖的其他包。
+```
+
+| apt 命令         | 取代的命令           | 命令的功能                     |
+| ---------------- | -------------------- | ------------------------------ |
+| apt install      | apt-get install      | 安装软件包                     |
+| apt remove       | apt-get remove       | 移除软件包                     |
+| apt purge        | apt-get purge        | 移除软件包及配置文件           |
+| apt update       | apt-get update       | 刷新存储库索引                 |
+| apt upgrade      | apt-get upgrade      | 升级所有可升级的软件包         |
+| apt autoremove   | apt-get autoremove   | 自动删除不需要的包             |
+| apt full-upgrade | apt-get dist-upgrade | 在升级软件包时自动处理依赖关系 |
+| apt search       | apt-cache search     | 搜索应用程序                   |
+| apt show         | apt-cache show       | 显示安装细节                   |

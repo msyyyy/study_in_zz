@@ -389,4 +389,8 @@ git reset --hard HEAD~5   回退5个版本
 2. `git merge feature --no-ff # 和公共分支合并只用merge, 永远不考虑rebase`
 3. `git push`
 
- 
+
+
+
+
+提交之前，看一下 git status ，不要把中间文件上传，只上传自己修改过的文件 
