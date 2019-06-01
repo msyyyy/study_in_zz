@@ -331,3 +331,4 @@ ENDIF()
 make VERBOSE=1
 ```
 
+一般如果是windows环境都要指定编译器，因为默认是vs 2015， 如果你是 "MinGW"  ，`cmake -G "MinGW Makefiles"   ../`
